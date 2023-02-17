@@ -1,21 +1,33 @@
 pipeline {
   agent any
   stages {
-//     stage ('Testing') {
-//       steps {
-//           git branch: 'main', credentialsId: 'for-git', url: 'https://github.com/Delali97/Google-Kubernetes-boilerplate.git'
-//           //sh ''' cd app/adservice
-//                   ls
-//                   sudo docker --version
-//                   sudo docker build -t delalixx/adservice .
-//                   sudo docker push delalixx/adservice
-//                   '''
-//       }
-//     }
+     stage ('Testing') {
+       steps {
+           git branch: 'main', credentialsId: 'for-git', url: 'https://github.com/Delali97/Google-Kubernetes-boilerplate.git'
+           //sh ''' cd app/adservice
+                   ls
+                   sudo docker --version
+                   sudo docker build -t folumii/frontend .
+                   sudo docker push folumii/frontend
+                   '''
+       }
+     }
     stage ('Create Deploy to Yaml file') {
       steps {
         sh 'kubectl version --client --output=yaml'
         sh 'kubectl get nodes'
+      }
+    }
+    stage('Deploy to EKS') {
+      steps {
+        withCredentials([aws(credentialsId: 'aws-credentials', region: 'ca-central-1')]) {
+          sh '''
+          set -e
+          eval $(aws eks update-kubeconfig --name bootdemo)
+          kubectl config use-context bootdemo
+          //kubectl -n $K8S_NAMESPACE set image deployment/$SERVICE_NAME $SERVICE_NAME=frontend:$IMAGE_TAG
+          '''
+        }
       }
     }
 //     stage('Install Terraform & Required GPG') {
