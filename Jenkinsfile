@@ -4,7 +4,8 @@ pipeline {
     stage ('Testing') {
       steps {
           git branch: 'main', credentialsId: 'for-git', url: 'https://github.com/Delali97/Google-Kubernetes-boilerplate.git'
-          withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'docker_pwd', usernameVariable: 'dockerhub_user')]) {
+          sh ''' docker login -u delalixx -p dckr_pat_-dfSKHYHBVZNLTVX1R5sxmNGJwo
+          '''
           sh ''' sudo docker system prune -af
                   '''
            sh ''' cd app/adservice
