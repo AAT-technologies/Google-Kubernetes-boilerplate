@@ -87,7 +87,6 @@ pipeline {
                   sudo docker build -t delalixx/shippingservice .
                   sudo docker push delalixx/shippingservice
                   '''
-         }
       }
     }
      stage ('Create Deploy to Yaml file') {
