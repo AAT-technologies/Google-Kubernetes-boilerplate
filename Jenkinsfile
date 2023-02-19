@@ -96,7 +96,7 @@ pipeline {
                  aws eks update-kubeconfig --name bootcampdemo
                  kubectl config current-context
                  kubectl config use-context arn:aws:eks:us-east-2:842423002160:cluster/bootcampdemo
-                 kubectl apply -f testing.yaml
+                 kubectl apply -f cluster.yaml
                  kubectl get node
                  kubectl get service
                  '''
