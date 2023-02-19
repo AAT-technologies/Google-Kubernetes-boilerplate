@@ -47,7 +47,7 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/emailservice:v0.5.1
+        image: delalixx/emailservice:latest
         ports:
         - containerPort: 8080
         env:
@@ -112,7 +112,7 @@ spec:
                 - all
             privileged: false
             readOnlyRootFilesystem: true
-          image: gcr.io/google-samples/microservices-demo/checkoutservice:v0.5.1
+          image: delalixx/checkoutservice:latest
           ports:
           - containerPort: 5050
           readinessProbe:
@@ -186,7 +186,7 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/recommendationservice:v0.5.1
+        image: delalixx/recommendationservice:latest
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -255,7 +255,7 @@ spec:
                 - all
             privileged: false
             readOnlyRootFilesystem: true
-          image: gcr.io/google-samples/microservices-demo/frontend:v0.5.1
+          image: delalixx/frontend:latest
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -362,7 +362,7 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/paymentservice:v0.5.1
+        image: delalixx/paymentservice:latest
         ports:
         - containerPort: 50051
         env:
@@ -426,7 +426,7 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/productcatalogservice:v0.5.1
+        image: delalixx/productcatalogservice:latest
         ports:
         - containerPort: 3550
         env:
@@ -490,7 +490,7 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/cartservice:v0.5.1
+        image: delalixx/cartservice:latest
         ports:
         - containerPort: 7070
         env:
@@ -582,7 +582,7 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/loadgenerator:v0.5.1
+        image: delalixx/loadgenerator:latest
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
@@ -625,7 +625,7 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/currencyservice:v0.5.1
+        image: delalixx/currencyservice:latest
         ports:
         - name: grpc
           containerPort: 7000
@@ -689,7 +689,7 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/shippingservice:v0.5.1
+        image: delalixx/shippingservice:latest
         ports:
         - containerPort: 50051
         env:
@@ -819,7 +819,7 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
-        image: gcr.io/google-samples/microservices-demo/adservice:v0.5.1
+        image: delalixx/adservice:latest
         ports:
         - containerPort: 9555
         env:
