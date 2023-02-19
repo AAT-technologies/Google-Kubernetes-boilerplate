@@ -4,7 +4,7 @@ pipeline {
     stage ('Testing') {
       steps {
           git branch: 'main', credentialsId: 'for-git', url: 'https://github.com/Delali97/Google-Kubernetes-boilerplate.git'
-          sh ''' docker login -u delalixx -p dckr_pat_-dfSKHYHBVZNLTVX1R5sxmNGJwo
+          sh ''' sudo docker login -u delalixx -p dckr_pat_-dfSKHYHBVZNLTVX1R5sxmNGJwo
           '''
           sh ''' sudo docker system prune -af
                   '''
