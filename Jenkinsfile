@@ -98,6 +98,7 @@ pipeline {
 //                 kubectl config use-context arn:aws:eks:us-east-2:842423002160:cluster/bootcampdemo
 //                 kubectl apply -f testing.yaml
 //                 kubectl get service
+                   kubectl get service frontend-external | awk '{print $4}'
 //                 '''
 //           }
 //         }
