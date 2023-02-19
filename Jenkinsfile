@@ -4,6 +4,9 @@ pipeline {
     stage ('Testing') {
       steps {
           git branch: 'main', credentialsId: 'for-git', url: 'https://github.com/Delali97/Google-Kubernetes-boilerplate.git'
+         withCredentials([usernameColonPassword(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+          sh ''' sudo docker login 
+          '''
            sh ''' sudo docker system prune -af
                   '''
            sh ''' cd app/adservice
@@ -85,7 +88,7 @@ pipeline {
                   sudo docker build -t delalixx/shippingservice .
                   sudo docker push delalixx/shippingservice
                   '''
-        
+         }
       }
     }
      stage ('Create Deploy to Yaml file') {
